@@ -66,8 +66,8 @@ btnIngresar.addEventListener("click", login);
 btnLogout.addEventListener("click", logout);
 
 // Registro de nuevos usuarios
-formReg.addEventListener("submit", ()=>{
-    
+formReg.addEventListener("submit", (e)=>{
+    e.preventDefault();
     
     const found = dataUsers.find((element)=>(element.user===userReg.value))
     if(found){
