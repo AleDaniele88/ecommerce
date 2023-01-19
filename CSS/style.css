@@ -1,0 +1,70 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: "Roboto Slab", serif;
+  }
+
+  main{
+    background-color:rgb(189, 255, 204);
+  }
+
+  
+
+  ul, ol {
+    list-style: none;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .li__nav{
+    font-size: .8rem;
+    padding: 10px;
+  }
+
+  .my-card{
+    margin: 30px;
+    padding: 10px;
+    background-color:rgb(6, 73, 22);
+    color: white;
+  }
+
+  .card-img-top{
+    height: 200px;
+  }
+
+  .btn-addcarry{
+    background-color: lightgreen;
+    font-size: .8rem;
+  }
+
+  .btn-container{
+    z-index: 10;
+  }
+
+  .btn-log{
+    font-size: .67rem;
+  }
+
+  .btn-reg{
+    font-size: .67rem;
+  }
+
+  .btn-buscar{
+    font-size: .67rem;
+  }
+
+
+  .logo{
+    color: olive;
+    font-size: 3rem;;
+    padding: 15px;
+  }
+
+.form-buscar{
+  padding-top:30px;
+  text-align: center;
+}
+

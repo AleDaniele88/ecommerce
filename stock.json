@@ -1,0 +1,55 @@
+
+    [{
+        "id":1,
+        "name": "Aspidiestra Elatior",
+        "quantity": 1,
+        "desc": "Planta para interiores",
+        "price": 150,
+        "img": "../../ASSETS/aspidiestra-elatior.jpg"
+    },
+
+    {
+        "id":2,
+        "name": "Calatea Mil Rayas",
+        "quantity": 1,
+        "desc": "Planta para interiores",
+        "price": 150,
+        "img": "../../ASSETS/calatea-mil-rayas.jpg"
+    },
+
+    {
+        "id":3, 
+        "name": "Alathea Thalia",
+        "quantity": 1,
+        "desc": "Planta para interiores",
+        "price": 150,
+        "img": "../../ASSETS/calathea-thalia.jpg"
+    },
+
+    {
+        "id":4,
+        "name": "Chamaedorea Elegans",
+        "quantity": 1,
+        "desc": "Planta para interiores",
+        "price": 150,
+        "img": "../../ASSETS/chamaedorea-elegans.jpg"
+    },
+
+    {
+        "id":5,
+        "name": "Dracena Pele",
+        "quantity": 1,
+        "desc": "Planta para interiores",
+        "price": 150,
+        "img": "../../ASSETS/dracena-pele.jpg"
+    },
+
+    {
+        "id":6,
+        "name": "Lazo De Amor Ocean",
+        "quantity": 1,
+        "desc": "Planta para interiores",
+        "price": 150,
+        "img": "../../ASSETS/lazo-de-amor-ocean.jpg"
+    }
+]
