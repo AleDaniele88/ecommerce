@@ -4,7 +4,7 @@ const stockProducts = [];
 
 
 const pedirProductos = async () => {
-    const resp = await fetch("../../stock.json");
+    const resp = await fetch("./stock.json");
     const data = await resp.json();
     data.forEach((product)=>{
                 stockProducts.push(product)

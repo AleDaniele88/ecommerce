@@ -5,7 +5,7 @@
         "quantity": 1,
         "desc": "Planta para interiores",
         "price": 150,
-        "img": "../../ASSETS/aspidiestra-elatior.jpg"
+        "img": "./ASSETS/aspidiestra-elatior.jpg"
     },
 
     {
