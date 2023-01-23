@@ -19,10 +19,7 @@
     text-decoration: none;
   }
 
-  .li__nav{
-    font-size: .8rem;
-    padding: 10px;
-  }
+
 
   .my-card{
     margin: 30px;
@@ -46,10 +43,12 @@
 
   .btn-log{
     font-size: .67rem;
+    margin: 5px 3px;
   }
 
   .btn-reg{
     font-size: .67rem;
+    margin: 5px 3px;
   }
 
   .btn-buscar{
@@ -67,4 +66,19 @@
   padding-top:30px;
   text-align: center;
 }
+
+.nav{
+  
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.nav__title{
+  font-size: 1.3rem;
+  text-align: center;
+}
+
 

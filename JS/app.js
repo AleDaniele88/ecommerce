@@ -1,24 +1,15 @@
-
-
+//Fetch para traer productos desde stock.json
 const stockProducts = [];
-
-
 const pedirProductos = async () => {
-    const resp = await fetch("./stock.json");
+    const resp = await fetch("../stock.json");
     const data = await resp.json();
     data.forEach((product)=>{
                 stockProducts.push(product)
                 })
     logout();
     }
-
 pedirProductos();
 
-
-let dataUsers = [
-    {user: "Coderhouse", pass: "1234", carrito:0},
-    {user: "Ale Daniele", pass:"4321", carrito:0}
-];
 
 dataUsers = JSON.parse(localStorage.getItem("dataUsers"))||[];
 
@@ -40,7 +31,6 @@ let btnLogout = document.getElementById("btn-logout");
 let btnCarrito = document.getElementById("btn-carrito");
 let check = document.getElementById("check");
 let btnReg = document.getElementById("btn-reg");
-let btnRegOk = document.getElementById("btn-reg-ok");
 let userReg = document.getElementById("user-reg");
 let passReg = document.getElementById("pass-reg");
 let loginOk = false;
@@ -50,15 +40,8 @@ let inputBuscar = document.getElementById("input-buscar");
 let formBuscar = document.getElementById("form-buscar");
 let bandera;
 let productosFiltrados = [];
+let lastUser;
 
-// loginOk = localStorage.getItem("loginOk")||false;
-
-// if(loginOk) {
-//     logout();
-//      login();
-//  }else{
-//    logout();
-//  }
 
 logout();
 
@@ -78,24 +61,33 @@ formReg.addEventListener("submit", (e)=>{
           })
     }
     else{
-        dataUsers.push({user: userReg.value, pass: passReg.value, carrito: 0})
+        dataUsers.push({user: userReg.value, pass: passReg.value})
         localStorage.setItem("dataUsers", JSON.stringify(dataUsers));
+        Swal.fire({
+            title: 'Usuario creado correctamente',
+            icon: 'success',
+            confirmButtonText: 'Aceptar'
+          })
     }
 })
 
 function login(){
-        
-        localStorage.setItem("loginOk", true)
 
-        recordarCuenta();
+//SE UTILIZA PARA QUE SI INGRESA OTRO USUARIO, EL CARRITO INICIE VACIO. SI ES EL MISMO USUARIO, CONSERVA SU CARRITO.
+        lastUser = localStorage.getItem("lastUser")
+        if(userLog.value!==lastUser){
+            carrito = [];
+            mostrarCarrito();
+            refreshCarritoContenedor()
+        }
 
         dataUsers.forEach((item)=>{
             if((item.user==userLog.value)&&(item.pass==passLog.value)){
                 contenedor.innerHTML = "";
                 bandera = true;
-                stockProducts.forEach(element => {
+                stockProducts.map(element => {
     
-                    const {id, name, quantity, desc, price, img} = element;
+                    const {id, name, cantidad, desc, price, img} = element;
                     contenedor.innerHTML += `
                     <div class="card my-card" style="width: 18rem;">
                         <img src="${img}" class="card-img-top img-card" alt=${name}>
@@ -126,19 +118,22 @@ function login(){
                   })
             
         }
+        recordarCuenta();
+        lastUser = userLog.value;
+        localStorage.setItem("lastUser", lastUser);
+
 }
 
 function logout(){
 
-    localStorage.setItem("loginOk", false);
     bandera = false;
     check.checked = localStorage.getItem("check");
     userLog.value = localStorage.getItem("userLog")||"";
     passLog.value = localStorage.getItem("passLog")||"";
     contenedor.innerHTML = "";
-    stockProducts.forEach(element => {
+    stockProducts.map(element => {
 
-        const {id, name, quantity, desc, price, img} = element;
+        const {id, name, cantidad, desc, price, img} = element;
         contenedor.innerHTML += `
         <div class="card my-card" style="width: 18rem;">
             <img src="${img}" class="card-img-top" alt=${name}>
@@ -169,7 +164,7 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 vaciarCarrito.addEventListener("click", (e)=>{
-    
+    carrito.forEach((prod)=>prod.cantidad = 1)
     carrito = [];
     mostrarCarrito();
     refreshCarritoContenedor()
@@ -191,13 +186,22 @@ continuarCompra.addEventListener("click", ()=>{
 
 function agregarProducto(id){
     const item = stockProducts.find((product)=>product.id === id);
-    if(!carrito.includes(item)){
+
+    let val=false;
+
+    carrito.forEach((p)=>{
+        if(p.id===id){
+            val=true;
+        }
+    })
+    
+    if(!val){
         carrito.push(item);
     } 
     else{
         carrito.forEach(element => {
             if(element.id === id){
-                element.quantity++;
+                element.cantidad++;
             }
         });
     }
@@ -218,6 +222,7 @@ function agregarProducto(id){
 
     mostrarCarrito();
     refreshCarritoContenedor();
+
 }
 
 function mostrarCarrito(){
@@ -225,20 +230,20 @@ function mostrarCarrito(){
     montoTotal = 0;
 
     carrito.forEach(product => {
-        const {id, name, quantity, desc, price, img} = product;
+        const {id, name, cantidad, desc, price, img} = product;
         modal.innerHTML += `
         <div class="card my-card" style="width: 18rem;">
             <img src="${img}" class="card-img-top" alt=${name}>
             <div class="card-body">
             <h5 class="card-title"><a href="#">${name}</a></h5>
             <p class="card-text">Precio: $${price}</p>
-            <p class="card-text">Cantidad: ${quantity}</p>
+            <p class="card-text">Cantidad: ${cantidad}</p>
             <button onclick = "eliminarProducto(${id})"class="btn btn-addcarry">ELIMINAR</button>
             </div>
         </div>
         `
 
-        montoTotal += price*quantity;
+        montoTotal += price*cantidad;
         totalCarrito.textContent = " " + montoTotal;
     })
     if(carrito.length === 0){
@@ -252,7 +257,9 @@ function mostrarCarrito(){
 
 function eliminarProducto(id){
     let index = carrito.findIndex((product)=>product.id===id)
+    carrito[index].cantidad = 1;
     carrito.splice(index, 1);
+
     mostrarCarrito();
     refreshCarritoContenedor();
 
@@ -289,7 +296,7 @@ inputBuscar.addEventListener("input", (e)=>{
      
       productosFiltrados.forEach(element => {
 
-          const {id, name, quantity, desc, price, img} = element;
+          const {id, name, cantidad, desc, price, img} = element;
           contenedor.innerHTML += `
           <div class="card my-card" style="width: 18rem;">
               <img src="${img}" class="card-img-top img-card" alt=${name}>
