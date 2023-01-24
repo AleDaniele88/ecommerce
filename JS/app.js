@@ -1,7 +1,7 @@
 //Fetch para traer productos desde stock.json
 const stockProducts = [];
 async function pedirProductos(){
-    const resp = await fetch("../stock.json");
+    const resp = await fetch("./stock.json");
     const data = await resp.json();
     data.forEach((product)=>{
                 stockProducts.push(product)
