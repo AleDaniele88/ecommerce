@@ -13,7 +13,7 @@
         "name": "Calatea Mil Rayas",
         "cantidad": 1,
         "desc": "Planta para interiores",
-        "price": 150,
+        "price": 320,
         "img": "../ASSETS/calatea-mil-rayas.jpg"
     },
 
@@ -22,7 +22,7 @@
         "name": "Alathea Thalia",
         "cantidad": 1,
         "desc": "Planta para interiores",
-        "price": 150,
+        "price": 650,
         "img": "../ASSETS/calathea-thalia.jpg"
     },
 
@@ -31,7 +31,7 @@
         "name": "Chamaedorea Elegans",
         "cantidad": 1,
         "desc": "Planta para interiores",
-        "price": 150,
+        "price": 120,
         "img": "../ASSETS/chamaedorea-elegans.jpg"
     },
 
@@ -40,7 +40,7 @@
         "name": "Dracena Pele",
         "cantidad": 1,
         "desc": "Planta para interiores",
-        "price": 150,
+        "price": 1000,
         "img": "../ASSETS/dracena-pele.jpg"
     },
 
@@ -49,7 +49,7 @@
         "name": "Lazo De Amor Ocean",
         "cantidad": 1,
         "desc": "Planta para interiores",
-        "price": 150,
+        "price": 1580,
         "img": "../ASSETS/lazo-de-amor-ocean.jpg"
     }
 ]

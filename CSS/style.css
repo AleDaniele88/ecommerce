@@ -6,26 +6,43 @@
   }
 
   main{
-    background-color:rgb(189, 255, 204);
+    background-color:rgb(222, 255, 230);
   }
+
+  header{
+    background-color:rgb(222, 255, 230);
+    border-bottom: 2px solid white;
+  }
+  
+  .logo{
+    color: olive;
+    font-size: 3rem;;
+    padding: 15px;
+  }
+
+  .dark{
+    background-color:rgb(4,66,18);
+    color: white;
+  }
+
+  .medium{
+    background-color:rgb(49, 143, 71);
+  }
+
+  .light{
+    color: white;
+  }
+
 
   
-
-  ul, ol {
-    list-style: none;
-  }
-
-  a {
-    text-decoration: none;
-  }
-
+ 
 
 
   .my-card{
     margin: 30px;
     padding: 10px;
-    background-color:rgb(6, 73, 22);
-    color: white;
+    background-color:rgb(150, 255, 174);
+    color: grey;
   }
 
   .card-img-top{
@@ -33,7 +50,10 @@
   }
 
   .btn-addcarry{
-    background-color: lightgreen;
+    border-radius: 6px;
+    background: linear-gradient(145deg, #9aff9a, #82d682);
+    box-shadow:  5px 5px 6px #7aca7a,
+             -5px -5px 6px #a6ffa6;
     font-size: .8rem;
   }
 
@@ -56,14 +76,10 @@
   }
 
 
-  .logo{
-    color: olive;
-    font-size: 3rem;;
-    padding: 15px;
-  }
+  
 
 .form-buscar{
-  padding-top:30px;
+  padding:30px;
   text-align: center;
 }
 
@@ -79,6 +95,38 @@
 .nav__title{
   font-size: 1.3rem;
   text-align: center;
+}
+
+.user{
+  width: 100%;
+  height: auto;
+  
+}
+
+.img-user{
+  width: 30px;
+  height: 30px;
+  margin: 0;
+}
+
+.img-reg{
+  width: 25px;
+  height: 25px;
+  margin: 0;
+}
+
+.img-tema{
+  width: 30px;
+  height: 30px;
+  margin: 8px;
+  position:fixed;
+}
+
+.footer{
+  padding:25px;
+  font-size: 1.2rem;
+  text-align: center;
+  
 }
 
 

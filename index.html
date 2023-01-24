@@ -17,7 +17,7 @@
 
 <body>
 
-  <header class="sticky-top bg-white">
+  <header class="sticky-top" id="header">
 
     
 
@@ -37,7 +37,7 @@
 
   </header>
 
-  <main>
+  <main id="main">
     <!-- Modal carrito-->
     <div class="modal fade" id="modal-carrito" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
@@ -51,7 +51,6 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-primary" id="vaciar-carrito">Vaciar Carrito</button>
-            <button type="button" class="btn btn-primary" id="continuar-compra">Continuar compra</button>
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             <p>Precio total: $<span id="total-carrito"></span></p>
           </div>
@@ -68,10 +67,18 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <input type="text" class="d-block m-2" id="user-log" placeholder="Ingrese su usuario" required>
-        <input type="password" class="d-block m-2" id="pass-log" placeholder="Ingrese su contraseña" required>
-        <input type="checkbox" id="check">
-        <label for="check">Recordarme</label>
+        <div class="d-flex align-items-center justify-content-center user">
+          <img src="/ASSETS/user-add.svg" alt="" class="img-user">
+          <input type="email" class="d-block m-2" id="user-log" placeholder="Ingrese su usuario" required>
+        </div>
+        <div class="d-flex align-items-center justify-content-center user">
+          <img src="/ASSETS/password.svg" alt="" class="img-reg">
+          <input type="password" class="d-block m-2" id="pass-log" placeholder="Ingrese su contraseña" required>
+        </div>
+        <div class="d-flex justify-content-center">
+          <input type="checkbox" id="check">
+          <label for="check">Recordarme</label>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" id="btn-ingresar" data-bs-dismiss="modal">Ingresar</button>
@@ -91,10 +98,19 @@
       
           <div class="modal-body">
             <form action="" id="form-reg">
-              <input type="text" class="d-block m-2" id="user-reg" placeholder="Ingrese su usuario" required>
-              <input type="password" class="d-block m-2" id="pass-reg" placeholder="Ingrese su contraseña" required>
-              <!-- <input type="password" class="d-block m-2" id="pass-reg-confirm" placeholder="Repita su contraseña" required> -->
-              <button type="submit" class="btn btn-secondary" id ="btn-reg-ok">Registrarme</button>
+              <div class="d-flex align-items-center justify-content-center user">
+                <img src="/ASSETS/user-add.svg" alt="" class="img-user">
+                <input type="email" class="d-block m-2" id="user-reg" placeholder="Ingrese su usuario" required>
+              </div>
+              <div class="d-flex align-items-center justify-content-center user">
+                <img src="/ASSETS/password.svg" alt="" class="img-reg">
+                <input type="password" class="d-block m-2" id="pass-reg" placeholder="Ingrese su contraseña" required>
+              </div>
+              <div class="d-flex align-items-center justify-content-center user">
+                <img src="/ASSETS/password.svg" alt="" class="img-reg">
+                <input type="password" class="d-block m-2" id="pass-reg-confirm" placeholder="Repita su contraseña" required>
+              </div>
+              <button type="submit" class="btn btn-secondary d-block mx-auto my-3" id ="btn-reg-ok">Registrarme</button>
             </form> 
           </div>
           
@@ -103,6 +119,12 @@
   </div>
  
 </div>
+
+    
+      
+    <img src="/ASSETS/tema.svg" alt="" class="img-tema" id="btn-tema">
+    
+
     <form class="form-buscar d-none" id="form-buscar">
       <input type="text" id="input-buscar">
       <label for="input-buscar">Busca tu planta</label>
@@ -113,6 +135,9 @@
     </div>
   </main>
 
+  <footer class = "footer">
+    <h4>Realizado por Alejandro Daniele como proyecto final del curso de Javascript</h4>
+  </footer>
 
 
 
@@ -124,5 +149,7 @@
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
 </body>
+
+
 
 </html>

@@ -15,13 +15,17 @@ dataUsers = JSON.parse(localStorage.getItem("dataUsers"))||[];
 
 
 let carrito = [];
+let main = document.getElementById("main");
+let header = document.getElementById("header");
+let logo = document.querySelector(".logo")
+let myCard = document.getElementById("my-card");
 let contenedor = document.getElementById("contenedor");
 let modal = document.querySelector(".modal-body")
 let carritoContenedor = document.getElementById("carrito-contenedor")
 let vaciarCarrito = document.getElementById("vaciar-carrito");
 let continuarCompra = document.getElementById("continuar-compra");
 let totalCarrito = document.getElementById("total-carrito");
-let btnVolver = document.getElementById("btn-volver");
+let btnTema = document.getElementById("btn-tema");
 let montoTotal;
 let btnIngresar = document.getElementById("btn-ingresar");
 let userLog = document.getElementById("user-log");
@@ -33,6 +37,7 @@ let check = document.getElementById("check");
 let btnReg = document.getElementById("btn-reg");
 let userReg = document.getElementById("user-reg");
 let passReg = document.getElementById("pass-reg");
+let passRegConfirm = document.getElementById("pass-reg-confirm");
 let loginOk = false;
 let formReg = document.getElementById("form-reg");
 let btnBuscar = document.getElementById("btn-buscar");
@@ -44,6 +49,16 @@ let lastUser;
 
 
 logout();
+
+btnTema.addEventListener("click", () => {
+  main.classList.toggle("dark");
+  header.classList.toggle("medium");
+  logo.classList.toggle("light");
+  
+}
+)
+
+
 
 btnIngresar.addEventListener("click", login);
 btnLogout.addEventListener("click", logout);
@@ -60,12 +75,19 @@ formReg.addEventListener("submit", (e)=>{
             confirmButtonText: 'Aceptar'
           })
     }
-    else{
+    else if(passRegConfirm.value===passReg.value){
         dataUsers.push({user: userReg.value, pass: passReg.value})
         localStorage.setItem("dataUsers", JSON.stringify(dataUsers));
         Swal.fire({
             title: 'Usuario creado correctamente',
             icon: 'success',
+            confirmButtonText: 'Aceptar'
+          })
+    }
+    else{
+        Swal.fire({
+            title: 'Revise su contraseña',
+            icon: 'error',
             confirmButtonText: 'Aceptar'
           })
     }
@@ -89,7 +111,7 @@ function login(){
     
                     const {id, name, cantidad, desc, price, img} = element;
                     contenedor.innerHTML += `
-                    <div class="card my-card" style="width: 18rem;">
+                    <div class="card my-card" id="my-card" style="width: 18rem;">
                         <img src="${img}" class="card-img-top img-card" alt=${name}>
                         <div class="card-body">
                         <h5 class="card-title"><a href="#">${name}</a></h5>
@@ -135,7 +157,7 @@ function logout(){
 
         const {id, name, cantidad, desc, price, img} = element;
         contenedor.innerHTML += `
-        <div class="card my-card" style="width: 18rem;">
+        <div class="card my-card" id="my-card" style="width: 18rem;">
             <img src="${img}" class="card-img-top" alt=${name}>
             <div class="card-body">
             <h5 class="card-title"><a href="#">${name}</a></h5>
@@ -169,19 +191,7 @@ vaciarCarrito.addEventListener("click", (e)=>{
     mostrarCarrito();
     refreshCarritoContenedor()
 })
-continuarCompra.addEventListener("click", ()=>{
-    if(carrito.length === 0){
-        Swal.fire({
-            title: 'Tu carrito está vacio',
-            text: 'No has adquirido ningún producto',
-            icon: 'error',
-            confirmButtonText: 'Aceptar'
-          })
-    }
-    else{
-        location.href = "compra.html"
-    }
-});
+
 
 
 function agregarProducto(id){
