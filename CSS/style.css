@@ -5,6 +5,10 @@
     font-family: "Roboto Slab", serif;
   }
 
+  li{
+    list-style: none;
+  }
+
   main{
     background-color:rgb(222, 255, 230);
   }
@@ -34,7 +38,10 @@
   }
 
 
-  
+  .modal-content-clima{
+    width: 60%;
+    margin: 0 auto;
+  }
  
 
 
@@ -71,9 +78,12 @@
     margin: 5px 3px;
   }
 
-  .btn-buscar{
-    font-size: .67rem;
-  }
+  .btn-clima{
+      font-size: .75rem;
+      margin: 5px 3px;
+    }
+  
+
 
 
   

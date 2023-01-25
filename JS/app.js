@@ -1,3 +1,45 @@
+//API Clima
+let inputClima = document.getElementById("input-clima");
+let list = document.querySelector(".cities");
+let msg = document.querySelector(".msg");
+let formClima = document.querySelector(".top-banner")
+const form = document.querySelector(".top-banner form"); 
+const apiKey = "7000920421ea1dac58ace14b97818d4b"; 
+let inputVal;
+
+
+form.addEventListener("submit", e => { 
+    e.preventDefault(); 
+    inputVal = inputClima.value;
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${inputVal}&appid=${apiKey}&units=metric`;
+    fetch(url) .then(response => response.json()) .then(data => {
+        const { main, name, sys, weather } = data;
+        const icon = `https://openweathermap.org/img/wn/${weather[0]["icon"]}@2x.png`;
+        const li = document.createElement("li");
+        list.innerHTML = "";
+        li.classList.add("city");
+        const markup = ` 
+                        <h2 class="city-name" data-name="${name},${sys.country}"> 
+                        <span>${name}</span> 
+                        <sup>${sys.country}</sup> 
+                        </h2> 
+                        <div class="city-temp">${Math.round(main.temp)}<sup>°C</sup> 
+                        </div> 
+                        <figure> 
+                        <img class="city-icon" src=${icon} alt=${weather[0]["main"]}> 
+                         
+                        `;
+        li.innerHTML = markup;
+        list.appendChild(li);
+    }) .catch(() => { msg.textContent = "Por favor, coloque un nombre de ciudad válido 😩"; }); 
+
+    
+});
+
+
+
+
+
 //Fetch para traer productos desde stock.json
 const stockProducts = [];
 async function pedirProductos(){
@@ -128,6 +170,7 @@ function login(){
                 btnCarrito.classList.remove("d-none");
                 btnReg.classList.add("d-none");
                 formBuscar.classList.remove("d-none");
+                formClima.classList.add("d-none");
             }    
         })
         
@@ -172,6 +215,8 @@ function logout(){
     btnLogout.classList.add("d-none");
     btnCarrito.classList.add("d-none");
     btnReg.classList.remove("d-none");
+    formClima.classList.remove("d-none");
+    formBuscar.classList.add("d-none");
 }
 
 

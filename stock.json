@@ -5,7 +5,7 @@
         "cantidad": 1,
         "desc": "Planta para interiores",
         "price": 150,
-        "img": "../ASSETS/aspidiestra-elatior.jpg"
+        "img": "./ASSETS/aspidiestra-elatior.jpg"
     },
 
     {
@@ -14,7 +14,7 @@
         "cantidad": 1,
         "desc": "Planta para interiores",
         "price": 320,
-        "img": "../ASSETS/calatea-mil-rayas.jpg"
+        "img": "./ASSETS/calatea-mil-rayas.jpg"
     },
 
     {
@@ -23,7 +23,7 @@
         "cantidad": 1,
         "desc": "Planta para interiores",
         "price": 650,
-        "img": "../ASSETS/calathea-thalia.jpg"
+        "img": "./ASSETS/calathea-thalia.jpg"
     },
 
     {
@@ -32,7 +32,7 @@
         "cantidad": 1,
         "desc": "Planta para interiores",
         "price": 120,
-        "img": "../ASSETS/chamaedorea-elegans.jpg"
+        "img": "./ASSETS/chamaedorea-elegans.jpg"
     },
 
     {
@@ -41,7 +41,7 @@
         "cantidad": 1,
         "desc": "Planta para interiores",
         "price": 1000,
-        "img": "../ASSETS/dracena-pele.jpg"
+        "img": "./ASSETS/dracena-pele.jpg"
     },
 
     {
@@ -50,6 +50,6 @@
         "cantidad": 1,
         "desc": "Planta para interiores",
         "price": 1580,
-        "img": "../ASSETS/lazo-de-amor-ocean.jpg"
+        "img": "./ASSETS/lazo-de-amor-ocean.jpg"
     }
 ]

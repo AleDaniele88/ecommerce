@@ -122,9 +122,46 @@
 
     
       
-    <img src="./ASSETS/tema.svg" alt="" class="img-tema" id="btn-tema">
     
 
+    <!-- Modal Clima-->
+<div class="modal fade" id="modal-clima" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content modal-content-clima bg-black text-white">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">EL CLIMA EN TU CIUDAD</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <section class="ajax-section"> 
+          <div class="container"> 
+            <ul class="cities"></ul> 
+          </div> 
+        </section>
+        <span class="msg"></span> 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    <div><img src="./ASSETS/tema.svg" alt="" class="img-tema" id="btn-tema"></div>
+
+    <section class="top-banner"> 
+      <div class="container d-flex flex-column align-items-center p-5"> 
+        <h5 class="heading">¿Como está el clima para tu planta?</h4> 
+        <form> 
+          <div class="d-flex align-items-center">
+            <input type="text" placeholder="Busca tu ciudad" id="input-clima"> 
+            <button type="submit" class="btn btn-info btn-clima" id="btn-clima" data-bs-toggle="modal" data-bs-target="#modal-clima">Consultar</button> 
+          </div>
+        </form> 
+      </div> 
+    </section> 
+    
+  
     <form class="form-buscar d-none" id="form-buscar">
       <input type="text" id="input-buscar">
       <label for="input-buscar">Busca tu planta</label>
