@@ -12,12 +12,13 @@ form.addEventListener("submit", e => {
     e.preventDefault(); 
     inputVal = inputClima.value;
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${inputVal}&appid=${apiKey}&units=metric`;
+    msg.innerHTML = " ";
+    list.innerHTML = " ";
     fetch(url) .then(response => response.json()) .then(data => {
         const { main, name, sys, weather } = data;
         const icon = `https://openweathermap.org/img/wn/${weather[0]["icon"]}@2x.png`;
         const li = document.createElement("li");
-        msg.innerHTML = "";
-        list.innerHTML = "";
+        
         li.classList.add("city");
         const markup = ` 
                         <h2 class="city-name" data-name="${name},${sys.country}"> 
