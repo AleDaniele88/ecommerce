@@ -3,6 +3,7 @@ let inputClima = document.getElementById("input-clima");
 let list = document.querySelector(".cities");
 let msg = document.querySelector(".msg");
 let formClima = document.querySelector(".top-banner")
+let contendorLoad = document.querySelector("#contenedor-load")
 const form = document.querySelector(".top-banner form"); 
 const apiKey = "7000920421ea1dac58ace14b97818d4b"; 
 let inputVal;
@@ -10,6 +11,7 @@ let inputVal;
 
 form.addEventListener("submit", e => { 
     e.preventDefault(); 
+    contendorLoad.classList.remove("d-none");
     inputVal = inputClima.value;
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${inputVal}&appid=${apiKey}&units=metric`;
     msg.innerHTML = " ";
@@ -33,7 +35,11 @@ form.addEventListener("submit", e => {
                         `;
         li.innerHTML = markup;
         list.appendChild(li);
-    }) .catch(() => { msg.textContent = "Por favor, coloque un nombre de ciudad válido 😩"; }); 
+        contendorLoad.classList.add("d-none");
+        
+    }) .catch(() => { 
+        contendorLoad.classList.add("d-none");
+        msg.textContent = "Por favor, coloque un nombre de ciudad válido 😩"; }); 
 
     
 });
@@ -49,9 +55,9 @@ async function pedirProductos(){
     const data = await resp.json();
     data.forEach((product)=>{
                 stockProducts.push(product)
-                })
+                });
     logout();
-    }
+    };
 pedirProductos();
 
 
