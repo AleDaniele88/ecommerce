@@ -33,13 +33,18 @@ form.addEventListener("submit", e => {
                         <img class="city-icon" src=${icon} alt=${weather[0]["main"]}> 
                          
                         `;
-        li.innerHTML = markup;
-        list.appendChild(li);
-        contendorLoad.classList.add("d-none");
+
+        setTimeout(() => {
+            li.innerHTML = markup;
+            list.appendChild(li);
+            contendorLoad.classList.add("d-none")}, 3000);
+
+       
         
     }) .catch(() => { 
-        contendorLoad.classList.add("d-none");
-        msg.textContent = "Por favor, coloque un nombre de ciudad válido 😩"; }); 
+        setTimeout(()=>{contendorLoad.classList.add("d-none");
+        msg.textContent = "Por favor, coloque un nombre de ciudad válido 😩";}, 3000)
+         }); 
 
     
 });
